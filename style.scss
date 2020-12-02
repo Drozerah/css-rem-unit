@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
+
+// Set up variables
+$base-font-size: 16px;
+
+/**
+ * Trim unit
+ *
+ * - remove CSS unit caracter from given value
+ * @param      {String} $value - The given value
+ * @return     {String} - the trimed value
+ */
+@function trim-unit($value){
+  @return $value / ($value * 0 + 1)
+};
+
+/**
+ * Convert pixel to rem CSS unit
+ *
+ * @requires    trim-unit function
+ * @param       {Number} $value - The pixel numeric value
+ * @returns     {String} - The converted rem value
+ */
+@function toRem($value){
+  @return trim-unit($value) / trim-unit($base-font-size) * 1rem
+};
+
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  max-height: 100vh;
+  font-size: $base-font-size;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+body{
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 1rem 0px;
+}
+
+h1{
+  font-size: 2rem;
+}
+
+h2{
+  font-size: 1.75rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+h4{
+  font-size: 1.25rem;
+}
+
+h5{
+  font-size: 1rem;
+}
+
+h6{
+  font-size: .75rem;
+}
+
+p{
+  font-size: 1rem;
+}
+
+p{
+  font-weight: 300;
+  margin-top: 0px;
+  line-height: toRem(24px);
+}
+
+.mgt0{
+  margin-top: 0px;
+}
